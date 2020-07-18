@@ -1,0 +1,87 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="CapitoTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Fonts Base-->
+
+    <style name="CapitoTheme.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body" parent="CapitoTheme.TextAppearance">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body2" parent="CapitoTheme.TextAppearance">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Title" parent="CapitoTheme.TextAppearance">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Font implements -->
+
+    <style name="CapitoTheme.TextAppearance.Body.Regular" parent="CapitoTheme.TextAppearance.Body">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body.Medium" parent="CapitoTheme.TextAppearance.Body">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body.Bold" parent="CapitoTheme.TextAppearance.Body">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body2.Regular" parent="CapitoTheme.TextAppearance.Body2">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body2.Medium" parent="CapitoTheme.TextAppearance.Body2">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Body2.Bold" parent="CapitoTheme.TextAppearance.Body2">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Title.Regular" parent="CapitoTheme.TextAppearance.Title">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Title.Medium" parent="CapitoTheme.TextAppearance.Title">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Title.Bold" parent="CapitoTheme.TextAppearance.Title">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Buttons -->
+
+    <style name="Button.BaseUnelevated" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textAppearance">@style/CapitoTheme.TextAppearance.Body.Regular</item>
+    </style>
+
+</resources>

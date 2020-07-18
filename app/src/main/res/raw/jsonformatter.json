@@ -1,0 +1,532 @@
+﻿{
+    "events": {
+        "begin": {
+            "readable_name": "début",
+            "color": "#3498DB"
+        },
+        "middle": {
+            "readable_name": "pendant un tour",
+            "color": "#27AE60"
+        },
+        "before_end": {
+            "readable_name": "avant le décompte",
+            "color": "#F1C40F"
+        },
+        "end": {
+            "readable_name": "pendant le décompte",
+            "color": "#F39C12"
+        },
+        "after_end": {
+            "readable_name": "après le décompte",
+            "color": "#E74C3C"
+        }
+    },
+    "cards": [
+        {
+            "name": "Rush",
+            "value": -5,
+            "priority": 0,
+            "description": "L'effet est pété ? T'as qu'à imaginer qu'il ne l'est pas.",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: si vous possédez la carte \"Aurely\", alors la valeur de toutes vos cartes devient positif (peu importe l'effet de vos autres cartes). Si vous possédez également les cartes \"Ange\" et \"Skyle\" alors jetez un dé: si le résultat est pair, appliquez l'effet de la carte \"Rush\" sinon appliquez l'effet de la carte \"Skyle\"."
+        },
+        {
+            "name": "Skyle",
+            "value": 5,
+            "priority": 0,
+            "description": "L'effet est pété ? C'est la vie.",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: si vous possédez la carte \"Ange\", alors la valeur de toutes vos cartes devient négatif (peu importe l'effet de vos autres cartes). Si vous possédez également les cartes \"Aurely\" et \"Rush\" alors jetez un dé: si le résultat est pair, appliquez l'effet de la carte \"Rush\" sinon appliquez l'effet de la carte \"Skyle\"."
+        },
+        {
+            "name": "Ange",
+            "value": 3,
+            "priority": 0,
+            "description": "Rend ma carte, elle est à moi d'abord !",
+            "events": [
+                "middle"
+            ],
+            "effect": "Au cours de la manche: en montrant cette carte vous pouvez annuler l'échange qui vient de se produire. A usage unique."
+        },
+        {
+            "name": "Aurely",
+            "value": -3,
+            "priority": 0,
+            "description": "Ah non, en fait elle est pas belle celle-là.",
+            "events": [
+                "middle"
+            ],
+            "effect": "Au cours de la manche: en montrant cette carte vous pouvez piocher une autre carte à la place de celle que vous venez de piocher (dans la main du même joueur). A usage unique."
+        },
+        {
+            "name": "Minequest",
+            "value": 3,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Après le décompte des points: si vos points sont au-delà de 10 alors la valeur de cette carte est positive sinon elle est négative."
+        },
+        {
+            "name": "Cloud Community",
+            "value": 3,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: si un adversaire possède la carte \"Discord\", alors la valeur de cette carte devient 0."
+        },
+        {
+            "name": "Discord",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: annoncez une carte. Si un joueur possède cette carte, alors vous pouvez la lui échanger contre une carte de votre main choisie aléatoiement."
+        },
+        {
+            "name": "Mumble",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: les valeurs de vos cartes de type \"Personnage\" sont multipliées par 2."
+        },
+        {
+            "name": "Team Guildwars",
+            "value": 0,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: défaussez cette carte et piochez une carte dans la pioche. Appliquez l'effet de la carte piochée normalement."
+        },
+        {
+            "name": "Minequest 2",
+            "value": 0,
+            "priority": 0,
+            "description": "Votre partie est un échec.",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: si vous possédez cette carte, vous perdez -10 points."
+        },
+        {
+            "name": "Team Minecraft",
+            "value": 4,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "La valeur de cette carte ne peut pas être affectée par les effets d'une autre carte (sauf indication contraire)."
+        },
+        {
+            "name": "Satisfactory",
+            "value": 3,
+            "priority": 0,
+            "description": "Si j'ai 2 fonderies et qu'il me faut 6 constructeurs de plaque de fer, alors ...",
+            "events": [
+                "begin"
+            ],
+            "effect": "Au début de la manche: passez votre premier tour. Les échanges s'effectuent sans vous."
+        },
+        {
+            "name": "Coronavirus",
+            "value": -2,
+            "priority": 0,
+            "description": "C'est aussi dramatique en vrai qu'en jeu !",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: cette carte annule les effets de 2 de vos cartes choisient aléatoirement (sauf indication contraire)."
+        },
+        {
+            "name": "Japan Expo",
+            "value": 1,
+            "priority": 0,
+            "description": "L'inflation les amis, l'inflation...",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: pour chaque tour qui s'est déroulé, cette carte gagne voit sa valeur augmenter de 2."
+        },
+        {
+            "name": "Portal orange",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: Si un autre joueur possède la carte \"Portal bleu\", alors vous pouvez convenir d'un échange à l'amiable."
+        },
+        {
+            "name": "Portal bleu",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: Si un autre joueur possède la carte \"Portal orange\", alors vous pouvez convenir d'un échange à l'amiable."
+        },
+        {
+            "name": "Garry's Mod",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: la communauté peut décider d'ajouter 5 points à cette carte. Cette décision et décidée à la majorité."
+        },
+        {
+            "name": "Bug de code",
+            "value": 2,
+            "priority": 0,
+            "description": "Personne n'a envie de mettre le nez dans votre code pour corriger le problème.",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: défaussez une carte de votre main choisie aléatoirement."
+        },
+        {
+            "name": "League of legends",
+            "value": 0,
+            "priority": 0,
+            "description": "C'est bien connu, c'est tout le temps la faute de votre team.",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Au décompte des points: défaussez toutes vos cartes puis piochez le même montant depuis la pioche."
+        },
+        {
+            "name": "Overwatch",
+            "value": 1,
+            "priority": 0,
+            "description": "I need healing. Malheureusement votre support est parti explorer la carte.",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Au décompte des points: déterminez la carte de votre main avec la plus grande valeur. Divisez cette dernière par 2."
+        },
+        {
+            "name": "Sim's",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "middle"
+            ],
+            "effect": "Au cours de la manche: (uniquement suite à un échange où vous avez obtenu une carte de type \"Personnage\") si vous avez une seconde carte de type \"Personnage\" en main, alors piocher une carte de la pioche."
+        },
+        {
+            "name": "Animal crossing",
+            "value": -2,
+            "priority": 0,
+            "description": "Vous avez beaucoup trop d'amis",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: choisissez un joueur puis piochez une carte de sa main."
+        },
+        {
+            "name": "S4 League",
+            "value": -3,
+            "priority": 0,
+            "description": "Mais c'est un Pay To Win en fait ce jeu ?",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: vous pouvez retirer 5 de vos points pour annuler l'effet d'une de vos cartes."
+        },
+        {
+            "name": "Echange équivalent",
+            "value": -4,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin"
+            ],
+            "effect": "Au début de la manche: lancez un dé puis échangez avec la pioche un nombre maximum de cartes défini par ce dé (Cette carte exclue)."
+        },
+        {
+            "name": "One for all",
+            "value": 1,
+            "priority": 0,
+            "description": "L'union fait la force !",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Après le décompte des points: chaque joueur vous donne 2 points."
+        },
+        {
+            "name": "Ligne temporelle",
+            "value": 2,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin"
+            ],
+            "effect": "Au début de la manche: vous décidez d'allonger ou de réduire de 1 le nombre total de tour."
+        },
+        {
+            "name": "",
+            "value": -5,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Après le décompte des points: si vous êtes en négatif alors votre total de points devient 1."
+        },
+        {
+            "name": "Yugi",
+            "value": -3,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin",
+                "before_end"
+            ],
+            "effect": "Au début de la manche: choisissez une carte de votre main puis mettez la face cachée (Cette carte exclue). Elle le restera jusqu'à la fin de la manche. La carte face cachée n'est affectée par aucune autre carte et son effet est résolu normalement au décompte des points."
+        },
+        {
+            "name": "Lou",
+            "value": 1,
+            "priority": 0,
+            "description": "Lou espionne Tristan. C'est pas bien elle le sait.",
+            "events": [
+                "begin",
+                "middle"
+            ],
+            "effect": "Au début de la manche: désignez un joueur. Vous pourrez voir 2 de ses cartes à un moment durant la manche."
+        },
+        {
+            "name": "Spiderman",
+            "value": 3,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin",
+                "middle"
+            ],
+            "effect": "Au début de la manche/Au cours de la manche: Prenez une carte au joueur qui possède le plus de cartes. Si au moins deux joueurs ont le maximum de cartes, vous ne pouvez prendre aucune carte."
+        },
+        {
+            "name": "Coyote",
+            "value": 2,
+            "priority": 0,
+            "description": "piéger vos alier",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: Si cette carte est restée dans votre main durant toute la manche, alors elle vous rapporte 5 points bonus."
+        },
+        {
+            "name": "Investissement",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: choisissez jusqu'à 5 nombres d'une valeur de 1 à 6. Jetez les dés: s'il s'agit d'un nombre que vous aviez choisi, alors vous remportez les points suivants: 1 choix = 5 points, 2 choix = 4 points, 3 choix = 3 points, 4 choix = 2 points, 5 choix = 1 point."
+        },
+        {
+            "name": "Tout ou rien",
+            "value": 0,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin",
+                "after_end"
+            ],
+            "effect": "Au début de la manche: choisissez le joueur qui pour vous terminera avec le plus de points à la fin de la manche. Si après le décompte des points vous avez vu juste, alors vous gagnez autant de points que ce joueur cette manche, sinon vos points deviennent égaux aux points du joueur qui en a le moins."
+        },
+        {
+            "name": "Réalité virtuelle",
+            "value": 0,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: Choisissez un joueur puis lancez un dé: s'il réussi à deviner la valeur du dé, alors vous perdez 10 points. Sinon vous gagnez 4 points."
+        },
+        {
+            "name": "Dernière chance",
+            "value": 10,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "end"
+            ],
+            "effect": "Au décompte des points: choisissez un joueur. Lancez chacun un dé: celui qui obtient la plus grande valeur récupère les points de cette carte. Si une égalité survient alors la valeur de cette carte devient 0."
+        },
+        {
+            "name": "Fastpass",
+            "value": -3,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin"
+            ],
+            "effect": "Au début de la manche: vous ne jouerez que le dernier tour."
+        },
+        {
+            "name": "WTF",
+            "value": 3.14159265359,
+            "priority": 0,
+            "description": "Qui a décidé des règles déjà ?",
+            "events": [
+                "begin"
+            ],
+            "effect": "Au début de la manche: citez une carte qui n'est pas dans votre main. Si un joueur possède cette carte, il l'a défausse et en pioche une autre."
+        },
+        {
+            "name": "+1",
+            "value": 1,
+            "priority": 0,
+            "description": "",
+            "events": [
+                "begin",
+                "middle"
+            ],
+            "effect": "Au début de la manche: Lorsque cette carte est activée, tous les joueurs piocheront dans la pioche plutôt que dans la main d'un autre joueur."
+        },
+        {
+            "name": "Boss de Clermont",
+            "value": 5,
+            "priority": 0,
+            "description": "Bah parce que vous êtes le boss.",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: Vous pouvez acheter une carte à un autre joueur pour 3 points. Si vous décidez d'acheter une carte déjà posée, vous n'activerez pas son effet."
+        },
+        {
+            "name": "Le collectioneur",
+            "value": 2,
+            "priority": 0,
+            "description": "Un arc-en-ciel de plaisir !",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Après le décompte des points: Si vous possédez toutes les couleurs de carte, vous obtenez un bonus de 10 points."
+        },
+        {
+            "name": "Les jumeaux",
+            "value": -5,
+            "priority": 0,
+            "description": "On ne peut pas vous séparer de votre moitié.",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: Si une carte de votre main nécessite une autre carte pour activer son effet, récupérez cette carte peu importe où elle se trouve dans le jeu."
+        },
+        {
+            "name": "Poisse",
+            "value": -1,
+            "priority": 0,
+            "description": "Désolé j'ai glissé chef !",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Après le décompte des points: Donnez 2 points à tous les autres joueurs."
+        },
+        {
+            "name": "Mariage",
+            "value": 3,
+            "priority": 0,
+            "description": "Dites-vous oui mais à quel prix !",
+            "events": [
+                "begin",
+                "after_end"
+            ],
+            "effect": "Au début de la manche: choisissez un joueur. Après le décompte des points, faites la moyenne de vos scores."
+        },
+        {
+            "name": "Contre-sens",
+            "value": -2,
+            "priority": 0,
+            "description": "Qui a une montre ici déjà ? Personne voilà.",
+            "events": [
+                "middle"
+            ],
+            "effect": "Au cours de la manche: Vous pouvez changer le sens du jeu."
+        },
+        {
+            "name": "C'est kika pété",
+            "value": 1,
+            "priority": 0,
+            "description": "Nan mais elle pue aussi ...",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: tous les joueurs défaussent une carte au choix."
+        },
+        {
+            "name": "DLC",
+            "value": 1,
+            "priority": 0,
+            "description": "Toujours mieux que des lootbox !",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: Payez 3 points et piochez une carte."
+        },
+        {
+            "name": "Croque-mort",
+            "value": -2,
+            "priority": 0,
+            "description": "Et un zombie en plus !",
+            "events": [
+                "before_end"
+            ],
+            "effect": "Avant le décompte des points: piochez la carte sur le dessus de la défausse."
+        },
+        {
+            "name": "Le patron",
+            "value": -2,
+            "priority": 0,
+            "description": "T'es viré.",
+            "events": [
+                "begin"
+            ],
+            "effect": "Au début de la manche: Choisissez un autre joueur. Il ne jouera pas ce tour."
+        },
+        {
+            "name": "Développeur",
+            "value": 4.2,
+            "priority": 0,
+            "description": "C'est quoi ça ? Je te montre comment fait un VRAI programmeur.",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Après le décompte des points: Vous inversez l'ordre des points, le premier donne ses points au dernier et inversement. Les autres joueurs font de même. Si un joueur n'a personne avec qui échanger, il garde ses points."
+        },
+        {
+            "name": "Infirmière",
+            "value": 3,
+            "priority": 0,
+            "description": "Oui c'est broken. Mais ça nécessite de grandes études aussi.",
+            "events": [
+                "after_end"
+            ],
+            "effect": "Avant le décompte des points: Changer le signe de la valeur de n'importe quelle carte. Peut aussi être utilisée sur la carte \"Overwatch\" pour annuler son effet."
+        }
+    ]
+}

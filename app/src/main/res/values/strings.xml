@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Capito Dico</string>
+
+    <!-- Main Menu-->
+    <string name="main_menu_cards">Les cartes</string>
+    <string name="main_menu_simulator">Simulateur</string>
+    <string name="main_menu_about">A propos</string>
+
+    <!-- Main -->
+    <string name="main_description">Capito est un jeu inventé par Skyle et Rush. Au sein de cette application, retrouvez les règles du jeu et la liste des cartes de ce jeu.</string>
+</resources>

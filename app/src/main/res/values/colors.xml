@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Needed colors -->
+    <color name="colorPrimary">@color/ca_primary_color</color>
+    <color name="colorPrimaryDark">@color/ca_primary_color</color>
+    <color name="colorAccent">@color/ca_secondary_color_dark</color>
+
+    <!-- Colors declaration -->
+    <color name="ca_primary_color">#3d5a80</color>
+    <color name="ca_secondary_color_dark">#de6449</color>
+    <color name="ca_secondary_color_light">#e17259</color>
+
+    <color name="ca_light_color">#d8dbe2</color>
+    <color name="ca_very_light_color">#FFFFFF</color>
+
+    <color name="ca_dark_color">#303030</color>
+    <color name="ca_very_dark_color">#1b262c</color>
+
+    <color name="ca_success">#ade498</color>
+    <color name="ca_warning">#febf63</color>
+    <color name="ca_error">#fd5e53</color>
+
+    <!-- Reusing previous declared colors -->
+    <color name="ca_background_light">@color/ca_very_light_color</color>
+    <color name="ca_background_dark">@color/ca_dark_color</color>
+
+    <color name="ca_text_light">@color/ca_very_light_color</color>
+    <color name="ca_text_dark">@color/ca_dark_color</color>
+    <color name="ca_text_success">@color/ca_success</color>
+    <color name="ca_text_warning">@color/ca_warning</color>
+    <color name="ca_text_error">@color/ca_error</color>
+</resources>
