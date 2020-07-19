@@ -9,7 +9,11 @@
         android:id="@+id/navigation_cards"
         android:name="fr.skyle.capitodico.ui.cards.FragmentCards"
         android:label="FragmentMain"
-        tools:layout="@layout/fragment_cards" />
+        tools:layout="@layout/fragment_cards">
+        <action
+            android:id="@+id/action_navigation_cards_to_fragmentCardDetail"
+            app:destination="@id/fragmentCardDetail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_simulator"
@@ -22,5 +26,15 @@
         android:name="fr.skyle.capitodico.ui.about.FragmentAbout"
         android:label="FragmentAbout"
         tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/fragmentCardDetail"
+        android:name="fr.skyle.capitodico.ui.cardDetail.FragmentCardDetail"
+        android:label="FragmentCardDetail"
+        tools:layout="@layout/fragment_card_detail" >
+        <argument
+            android:name="cardName"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

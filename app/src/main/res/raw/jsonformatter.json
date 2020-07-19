@@ -2,23 +2,28 @@
     "events": {
         "begin": {
             "readable_name": "début",
-            "color": "#3498DB"
+            "color": "#82B1FF",
+            "description": "Au moins une partie de son effet s'exécute au début de la partie, juste après la distribution des cartes."
         },
         "middle": {
             "readable_name": "pendant un tour",
-            "color": "#27AE60"
+            "color": "#CCFF90",
+            "description": "Au moins une partie de son effet s'exécute pendant la partie, juste après un échange de cartes."
         },
         "before_end": {
             "readable_name": "avant le décompte",
-            "color": "#F1C40F"
+            "color": "#FFFF8D",
+            "description": "Au moins une partie de son effet s'exécute avant le décompte des points. Ces effets permettent souvent de réaliser des changements de cartes importants."
         },
         "end": {
             "readable_name": "pendant le décompte",
-            "color": "#F39C12"
+            "color": "#FFD180",
+            "description": "Au moins une partie de son effet s'exécute pendant le décompte des points. Ces effets n'ont en général aucun lien avec d'autres cartes."
         },
         "after_end": {
             "readable_name": "après le décompte",
-            "color": "#E74C3C"
+            "color": "#FF8A80",
+            "description": "Au moins une partie de son effet s'exécute après le décompte des points. Ces effets ont souvent un impact sur le score global obtenu."
         }
     },
     "cards": [
@@ -388,7 +393,7 @@
         },
         {
             "name": "WTF",
-            "value": 3.14159265359,
+            "value": 3.14,
             "priority": 0,
             "description": "Qui a décidé des règles déjà ?",
             "events": [

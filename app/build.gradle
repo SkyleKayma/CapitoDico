@@ -101,8 +101,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
 
-    // Gson
+    // --- Gson
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // --- Flexbox
+    implementation 'com.google.android:flexbox:2.0.1'
 
     // --- Test
     testImplementation 'junit:junit:4.13'

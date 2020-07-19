@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import fr.openium.kotlintools.ext.getColorCompat
+import fr.openium.kotlintools.ext.getDrawableCompat
 import fr.skyle.capitodico.R
 import fr.skyle.capitodico.ext.trimTrailingZero
 import fr.skyle.capitodico.utils.JsonUtils
@@ -51,20 +53,32 @@ class AdapterCards(
 
         fun bindView(card: JsonUtils.Card, onCardClicked: (String) -> Unit) {
             itemView.textViewMainItemTitle.text = card.name
-            itemView.textViewMainItemValue.text = "${card.value.trimTrailingZero() ?: "-"}pts"
+            itemView.textViewMainItemValue.text = "${card.value.trimTrailingZero() ?: "-"}"
             itemView.textViewMainItemDescription.text = card.description
 
             itemView.linearLayoutMainItemEvents.removeAllViews()
 
-            card.events.forEach {
-                val event = JsonUtils.events[it]
+            card.events.forEachIndexed { index, s ->
+                val event = JsonUtils.events[s]
 
-                val linearLayoutEvent = View.inflate(itemView.context, R.layout.item_card_event, null) as LinearLayout
-                linearLayoutEvent.backgroundTintList = event?.color?.let {
+                val linearLayoutEvent =
+                    LayoutInflater.from(itemView.context)
+                        .inflate(R.layout.item_card_event, itemView.linearLayoutMainItemEvents, true) as LinearLayout
+
+                val child = linearLayoutEvent.getChildAt(linearLayoutEvent.children.count() - 1)
+                child?.background = if (card.events.count() == 1) {
+                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_only_first)
+                } else if (card.events.count() > 1 && (index + 1) == 1 && (index + 1) < card.events.count()) {
+                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_first)
+                } else if (card.events.count() > 1 && (index + 1) > 1 && (index + 1) < card.events.count()) {
+                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_middle)
+                } else {
+                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_last)
+                }
+
+                child?.backgroundTintList = event?.color?.let {
                     ColorStateList.valueOf(Color.parseColor(it))
                 } ?: ColorStateList.valueOf(itemView.context.getColorCompat(android.R.color.transparent))
-
-                itemView.linearLayoutMainItemEvents.addView(linearLayoutEvent)
             }
 
             itemView.setOnClickListener {

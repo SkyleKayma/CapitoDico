@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.skyle.capitodico.R
 import fr.skyle.capitodico.base.fragment.AbstractFragment
+import fr.skyle.capitodico.ext.navigate
 import fr.skyle.capitodico.ui.cards.adapter.AdapterCards
 import fr.skyle.capitodico.utils.JsonUtils
 import kotlinx.android.synthetic.main.fragment_cards.*
@@ -14,6 +15,9 @@ import kotlinx.android.synthetic.main.fragment_cards.*
 class FragmentCards : AbstractFragment() {
 
     private lateinit var adapterCards: AdapterCards
+
+    // --- Life cycle
+    // ---------------------------------------------------
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_cards, container, false)
@@ -25,6 +29,9 @@ class FragmentCards : AbstractFragment() {
         setupAdapter()
     }
 
+    // --- Methods
+    // ---------------------------------------------------
+
     private fun setupListeners() {
 
     }
@@ -33,8 +40,7 @@ class FragmentCards : AbstractFragment() {
         // Init once the adapter
         adapterCards = AdapterCards(getData(),
             onCardClicked = { cardName ->
-//                val dialog = DialogMainCardDetail.getInstance(cardName)
-//                dialog.show(parentFragmentManager, "cardDetail")
+                navigate(FragmentCardsDirections.actionNavigationCardsToFragmentCardDetail(cardName))
             }
         )
 
