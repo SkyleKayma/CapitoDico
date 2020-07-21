@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.children
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.flexbox.FlexboxLayout
@@ -15,6 +15,7 @@ import fr.openium.kotlintools.ext.appCompatActivity
 import fr.openium.kotlintools.ext.getColorCompat
 import fr.skyle.capitodico.R
 import fr.skyle.capitodico.base.fragment.AbstractFragment
+import fr.skyle.capitodico.ext.lastChild
 import fr.skyle.capitodico.ext.setNavigationIconColor
 import fr.skyle.capitodico.ext.trimTrailingZero
 import fr.skyle.capitodico.utils.JsonUtils
@@ -29,6 +30,11 @@ class FragmentCardDetail : AbstractFragment() {
     // --- Life cycle
     // ---------------------------------------------------
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_card_detail, container, false)
 
@@ -38,7 +44,7 @@ class FragmentCardDetail : AbstractFragment() {
         card = JsonUtils.cards.firstOrNull { it.name == args.cardName }
 
         card?.let {
-            setToolbarStyle()
+            setupToolbar()
             setCardInfo()
         } ?: findNavController().popBackStack()
     }
@@ -46,10 +52,13 @@ class FragmentCardDetail : AbstractFragment() {
     // --- Methods
     // ---------------------------------------------------
 
-    private fun setToolbarStyle() {
-        toolbarCardDetail.setNavigationIconColor(requireContext().getColorCompat(R.color.ca_text_light_primary))
-        appCompatActivity.setSupportActionBar(toolbarCardDetail)
+    private fun setupToolbar() {
+        val toolbar = toolbarCardDetail as Toolbar
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_left)
+        toolbar.setNavigationIconColor(requireContext().getColorCompat(R.color.ca_text_light_primary))
+        appCompatActivity.setSupportActionBar(toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        appCompatActivity.supportActionBar?.setHomeButtonEnabled(true)
         appCompatActivity.supportActionBar?.title = card?.name?.ifEmpty { getString(R.string.card_detail_title_empty) }
     }
 
@@ -70,19 +79,19 @@ class FragmentCardDetail : AbstractFragment() {
         card?.events?.forEach {
             val event = JsonUtils.events[it]
 
-            val flexBoxEvent =
-                LayoutInflater.from(context).inflate(R.layout.item_card_detail_event, flexBoxLayoutCardDetail) as FlexboxLayout
-            val child = flexBoxEvent.getChildAt(flexBoxEvent.children.count() - 1) as TextView
-            child.text = event?.readable_name ?: ""
-            child.backgroundTintList = event?.color?.let {
-                ColorStateList.valueOf(Color.parseColor(it))
-            } ?: ColorStateList.valueOf(requireContext().getColorCompat(android.R.color.transparent))
+            val textViewEvent =
+                (LayoutInflater.from(context)
+                    .inflate(R.layout.item_card_detail_event, flexBoxLayoutCardDetail) as FlexboxLayout).lastChild() as? TextView
 
-//            flexBoxLayoutCardDetail.addView(textViewEvent)
+            textViewEvent?.apply {
+                text = event?.readable_name ?: ""
+                backgroundTintList = ColorStateList.valueOf(
+                    event?.color?.let { Color.parseColor(it) } ?: requireContext().getColorCompat(android.R.color.transparent)
+                )
+            }
         }
 
         // Set effect
-
         textViewCardDetailEffect.text = card?.effect?.ifEmpty { "-" }
     }
 }

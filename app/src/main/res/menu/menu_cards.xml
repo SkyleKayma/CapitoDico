@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_item_cards_search"
+        android:icon="@drawable/ic_search"
+        android:title=""
+        app:actionLayout="@layout/toolbar_search_view"
+        app:iconTint="@color/ca_text_light_primary"
+        app:showAsAction="always|withText|collapseActionView" />
+
+    <item
+        android:id="@+id/menu_item_cards_filter"
+        android:icon="@drawable/ic_filter"
+        android:title=""
+        app:iconTint="@color/ca_text_light_primary"
+        app:showAsAction="always" />
+
+</menu>

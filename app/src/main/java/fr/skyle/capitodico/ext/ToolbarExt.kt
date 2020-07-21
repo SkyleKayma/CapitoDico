@@ -8,3 +8,9 @@ fun Toolbar.setNavigationIconColor(@ColorInt color: Int) =
         it.setTint(color)
         this.navigationIcon = it
     }
+
+fun Toolbar.setCollapseIconColor(@ColorInt color: Int) =
+    collapseIcon?.mutate()?.let {
+        it.setTint(color)
+        this.collapseIcon = it
+    }

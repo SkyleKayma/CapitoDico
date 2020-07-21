@@ -5,6 +5,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
+
+        <!-- For the resting Spinner style -->
+        <item name="android:spinnerItemStyle">@style/Spinner.ItemStyle</item>
     </style>
 
     <!-- Fonts Base-->
@@ -96,6 +101,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="CapitoTheme.TextAppearance.Toolbar" parent="CapitoTheme.TextAppearance.Title.Medium">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="CapitoTheme.TextAppearance.Spinner" parent="CapitoTheme.TextAppearance.Title.Medium">
+        <item name="android:textColor">@color/ca_text_light_primary</item>
+    </style>
+
     <!-- Buttons -->
 
     <style name="Button.BaseUnelevated" parent="Widget.MaterialComponents.Button.UnelevatedButton">
@@ -103,6 +116,40 @@
         <item name="cornerRadius">20dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:textAppearance">@style/CapitoTheme.TextAppearance.Body.Regular</item>
+    </style>
+
+    <!-- SearchView -->
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView.ActionBar">
+        <!-- Search Icon -->
+        <item name="searchHintIcon">@null</item>
+        <!-- Query Text Color -->
+        <item name="android:textColorPrimary">@color/ca_text_light_primary</item>
+        <!-- Hint Text Color -->
+        <item name="android:textColorHint">@color/ca_text_light_tertiary</item>
+        <!-- Clear Icon Color -->
+        <item name="android:tint">@color/ca_text_light_primary</item>
+    </style>
+
+    <!-- BottomSheet-->
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/ca_background_dark</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/ca_navbar</item>
+    </style>
+
+    <!-- Spinner -->
+    <style name="Spinner.ItemStyle" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textAppearance">@style/CapitoTheme.TextAppearance.Spinner</item>
     </style>
 
 </resources>

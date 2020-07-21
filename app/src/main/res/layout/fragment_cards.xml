@@ -1,61 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:background="@color/ca_background">
+    tools:background="@color/ca_background_dark">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/ca_navbar"
-        android:elevation="2dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="14dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cards_title"
-            android:textAppearance="@style/CapitoTheme.TextAppearance.Title.Medium"
-            android:textColor="@color/ca_text_light_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/imageViewCardsSearch"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="12dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            android:tint="@color/ca_text_light_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imageViewCardsFilter"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_search" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/imageViewCardsFilter"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            android:tint="@color/ca_text_light_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_filter" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/toolbarCards"
+        layout="@layout/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCards"
@@ -64,6 +17,7 @@
         android:layout_marginTop="?actionBarSize"
         android:clipToPadding="false"
         android:paddingTop="12dp"
-        android:paddingBottom="20dp" />
+        android:paddingBottom="20dp"
+        tools:listitem="@layout/item_card" />
 
 </FrameLayout>

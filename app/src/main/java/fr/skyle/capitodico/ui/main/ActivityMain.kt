@@ -1,8 +1,7 @@
 package fr.skyle.capitodico.ui.main
 
 import android.os.Bundle
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import fr.skyle.capitodico.R
 import fr.skyle.capitodico.base.activity.AbstractActivity
@@ -24,11 +23,6 @@ class ActivityMain : AbstractActivity() {
     // ---------------------------------------------------
 
     private fun setupListeners() {
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
-        bottomNavigationMain.setupWithNavController(navController)
-        bottomNavigationMain.setOnNavigationItemSelectedListener { item ->
-            NavigationUI.onNavDestinationSelected(item, navController)
-        }
+        bottomNavigationMain.setupWithNavController(findNavController(R.id.nav_host_fragment))
     }
 }

@@ -1,14 +1,25 @@
 <resources>
     <string name="app_name">Capito Dico</string>
 
-    <!-- Main Menu-->
+    <!-- Main Menu -->
     <string name="main_menu_cards">Les cartes</string>
     <string name="main_menu_simulator">Simulateur</string>
     <string name="main_menu_about">A propos</string>
 
-    <!-- Main -->
-    <string name="cards_description">Capito est un jeu inventé par Skyle et Rush. Au sein de cette application, retrouvez les règles du jeu et la liste des cartes de ce jeu.</string>
+    <!-- Cards Screen -->
     <string name="cards_title">Liste des cartes</string>
+    <string name="cards_query_hint">Rechercher une carte...</string>
+
+    <!-- Cards List -->
+    <string name="cards_item_empty">Aucun résultat ne correspond à votre recherche</string>
+
+    <!-- Cards Filter -->
+    <string name="cards_filter_title">Filtres</string>
+    <string-array name="cards_filter_sortby">
+        <item>Alphabétique</item>
+        <item>Activation</item>
+        <item>Valeur</item>
+    </string-array>
 
     <!-- Card detail -->
     <string name="card_detail_title_empty">Carte sans nom</string>
@@ -20,4 +31,5 @@
     <string name="card_detail_effect_title">Informations sur l\'effet</string>
     <string name="card_detail_effect_activation">Activation:</string>
     <string name="card_detail_effect_effect">Effet:</string>
+
 </resources>

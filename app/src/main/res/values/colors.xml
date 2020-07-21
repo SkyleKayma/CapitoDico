@@ -14,7 +14,8 @@
     <!-- Colors declaration -->
     <color name="ca_ripple">#353A43</color>
 
-    <color name="ca_background">@color/ca_color_primary_dark</color>
+    <color name="ca_background">@color/ca_color_primary</color>
+    <color name="ca_background_dark">@color/ca_color_primary_dark</color>
 
     <color name="ca_navbar">@color/ca_color_primary_very_dark</color>
     <color name="ca_navbar_item_unselected">#3A444C</color>

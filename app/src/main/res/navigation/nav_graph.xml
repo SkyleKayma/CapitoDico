@@ -8,11 +8,14 @@
     <fragment
         android:id="@+id/navigation_cards"
         android:name="fr.skyle.capitodico.ui.cards.FragmentCards"
-        android:label="FragmentMain"
+        android:label="@string/cards_title"
         tools:layout="@layout/fragment_cards">
         <action
             android:id="@+id/action_navigation_cards_to_fragmentCardDetail"
             app:destination="@id/fragmentCardDetail" />
+        <action
+            android:id="@+id/action_navigation_cards_to_bottomSheetDialogCardFilter"
+            app:destination="@id/bottomSheetDialogCardFilter" />
     </fragment>
 
     <fragment
@@ -31,10 +34,16 @@
         android:id="@+id/fragmentCardDetail"
         android:name="fr.skyle.capitodico.ui.cardDetail.FragmentCardDetail"
         android:label="FragmentCardDetail"
-        tools:layout="@layout/fragment_card_detail" >
+        tools:layout="@layout/fragment_card_detail">
         <argument
             android:name="cardName"
             app:argType="string" />
     </fragment>
+
+    <dialog
+        android:id="@+id/bottomSheetDialogCardFilter"
+        android:name="fr.skyle.capitodico.ui.cards.bottomsheet.BottomSheetDialogCardFilter"
+        android:label="BottomSheetDialogCardFilter"
+        tools:layout="@layout/bottom_sheet_dialog_card_filter" />
 
 </navigation>

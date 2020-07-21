@@ -6,22 +6,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import fr.openium.kotlintools.ext.getColorCompat
 import fr.openium.kotlintools.ext.getDrawableCompat
 import fr.skyle.capitodico.R
+import fr.skyle.capitodico.ext.lastChild
 import fr.skyle.capitodico.ext.trimTrailingZero
 import fr.skyle.capitodico.utils.JsonUtils
 import kotlinx.android.synthetic.main.item_card.view.*
 
 class AdapterCards(
-    private var data: List<Data>,
+    private var data: MutableList<Data>,
     private var onCardClicked: (String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val ITEM_VIEW_TYPE = 0
+        const val EMPTY_VIEW_TYPE = 1
+
+        const val EMPTY_VIEW_SIZE = 1
+    }
+
+    private val copyList = mutableListOf<Data>()
+
+    init {
+        initCopyList()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,25 +38,49 @@ class AdapterCards(
         return when (viewType) {
             ITEM_VIEW_TYPE ->
                 ItemViewHolder(inflater.inflate(R.layout.item_card, parent, false))
+            EMPTY_VIEW_TYPE ->
+                EmptyViewHolder(inflater.inflate(R.layout.item_card_empty, parent, false))
             else -> error("unknown view type $viewType")
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val item = data[position]
-
         when (holder) {
             is ItemViewHolder -> {
+                val item = copyList[position]
                 holder.bindView(item.card as JsonUtils.Card, onCardClicked)
             }
         }
     }
 
     override fun getItemCount(): Int =
-        data.count()
+        if (copyList.count() > 0) copyList.count() else EMPTY_VIEW_SIZE
 
     override fun getItemViewType(position: Int): Int =
-        ITEM_VIEW_TYPE
+        if (copyList.isEmpty()) {
+            EMPTY_VIEW_TYPE
+        } else ITEM_VIEW_TYPE
+
+    private fun initCopyList() {
+        copyList.clear()
+        copyList.addAll(data)
+    }
+
+    fun searchBy(queryText: String) {
+        copyList.clear()
+
+        if (queryText.isEmpty()) {
+            initCopyList()
+        } else {
+            for (item in data) {
+                if (item.card?.name?.toLowerCase()?.contains(queryText.toLowerCase()) == true) {
+                    copyList.add(item)
+                }
+            }
+        }
+
+        notifyDataSetChanged()
+    }
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -61,24 +94,27 @@ class AdapterCards(
             card.events.forEachIndexed { index, s ->
                 val event = JsonUtils.events[s]
 
-                val linearLayoutEvent =
-                    LayoutInflater.from(itemView.context)
-                        .inflate(R.layout.item_card_event, itemView.linearLayoutMainItemEvents, true) as LinearLayout
+                val viewEvent =
+                    (LayoutInflater.from(itemView.context)
+                        .inflate(R.layout.item_card_event, itemView.linearLayoutMainItemEvents, true) as LinearLayout).lastChild()
 
-                val child = linearLayoutEvent.getChildAt(linearLayoutEvent.children.count() - 1)
-                child?.background = if (card.events.count() == 1) {
-                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_only_first)
-                } else if (card.events.count() > 1 && (index + 1) == 1 && (index + 1) < card.events.count()) {
-                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_first)
-                } else if (card.events.count() > 1 && (index + 1) > 1 && (index + 1) < card.events.count()) {
-                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_middle)
-                } else {
-                    itemView.context.getDrawableCompat(R.drawable.shape_cards_background_card_item_event_rounded_last)
+                viewEvent?.apply {
+                    background = itemView.context.getDrawableCompat(
+                        if (card.events.count() == 1) {
+                            R.drawable.shape_cards_background_card_item_event_rounded_only_first
+                        } else if (card.events.count() > 1 && (index + 1) == 1 && (index + 1) < card.events.count()) {
+                            R.drawable.shape_cards_background_card_item_event_rounded_first
+                        } else if (card.events.count() > 1 && (index + 1) > 1 && (index + 1) < card.events.count()) {
+                            R.drawable.shape_cards_background_card_item_event_rounded_middle
+                        } else {
+                            R.drawable.shape_cards_background_card_item_event_rounded_last
+                        }
+                    )
+
+                    backgroundTintList = ColorStateList.valueOf(
+                        event?.color?.let { Color.parseColor(it) } ?: itemView.context.getColorCompat(android.R.color.transparent)
+                    )
                 }
-
-                child?.backgroundTintList = event?.color?.let {
-                    ColorStateList.valueOf(Color.parseColor(it))
-                } ?: ColorStateList.valueOf(itemView.context.getColorCompat(android.R.color.transparent))
             }
 
             itemView.setOnClickListener {
@@ -86,6 +122,8 @@ class AdapterCards(
             }
         }
     }
+
+    class EmptyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     data class Data(
         val card: JsonUtils.Card? = null
