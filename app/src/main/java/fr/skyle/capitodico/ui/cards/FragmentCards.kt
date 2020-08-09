@@ -4,23 +4,34 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.openium.kotlintools.ext.appCompatActivity
 import fr.openium.kotlintools.ext.getColorCompat
 import fr.openium.kotlintools.ext.hideKeyboard
 import fr.skyle.capitodico.R
 import fr.skyle.capitodico.base.fragment.AbstractFragment
+import fr.skyle.capitodico.enum.SortType
+import fr.skyle.capitodico.event.eventFilterChanged
 import fr.skyle.capitodico.ext.navigate
 import fr.skyle.capitodico.ext.setNavigationIconColor
 import fr.skyle.capitodico.ui.cards.adapter.AdapterCards
 import fr.skyle.capitodico.utils.JsonUtils
+import fr.skyle.capitodico.utils.PreferencesUtils
 import kotlinx.android.synthetic.main.fragment_cards.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class FragmentCards : AbstractFragment(), SearchView.OnQueryTextListener {
 
     private lateinit var adapterCards: AdapterCards
-
     private lateinit var searchMenu: MenuItem
+
+    private val prefUtils by inject<PreferencesUtils>()
+
+    private var latestQueryString: String = ""
 
     // --- Life cycle
     // ---------------------------------------------------
@@ -66,7 +77,8 @@ class FragmentCards : AbstractFragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextChange(newText: String): Boolean {
-        adapterCards.searchBy(newText)
+        latestQueryString = newText
+        adapterCards.searchBy(latestQueryString)
         return true
     }
 
@@ -81,7 +93,11 @@ class FragmentCards : AbstractFragment(), SearchView.OnQueryTextListener {
     }
 
     private fun setupListeners() {
-
+        lifecycleScope.launch {
+            eventFilterChanged.asFlow().collect {
+                (recyclerViewCards.adapter as AdapterCards).refreshData(getData(), latestQueryString)
+            }
+        }
     }
 
     private fun setupAdapter() {
@@ -101,7 +117,16 @@ class FragmentCards : AbstractFragment(), SearchView.OnQueryTextListener {
     private fun getData(): MutableList<AdapterCards.Data> {
         val list = mutableListOf<AdapterCards.Data>()
 
-        JsonUtils.cards.sortedBy { it.name }.forEach {
+        val cards = JsonUtils.cards
+        val events = JsonUtils.events
+
+        when (SortType.fromOrdinal(prefUtils.sortSelected)) {
+            SortType.ALPHABETICAL -> cards.sortBy { it.name }
+            SortType.ACTIVATION -> cards.sortBy { item -> events[events.keys.first { it == item.events.first() }]?.order }
+            SortType.VALUE -> cards.sortByDescending { it.value }
+        }
+
+        cards.forEach {
             list.add(AdapterCards.Data(it))
         }
 

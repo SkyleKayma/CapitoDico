@@ -13,7 +13,7 @@ import fr.skyle.capitodico.R
 import fr.skyle.capitodico.ext.lastChild
 import fr.skyle.capitodico.ext.trimTrailingZero
 import fr.skyle.capitodico.utils.JsonUtils
-import kotlinx.android.synthetic.main.item_card.view.*
+import kotlinx.android.synthetic.main.list_item_card.view.*
 
 class AdapterCards(
     private var data: MutableList<Data>,
@@ -37,9 +37,9 @@ class AdapterCards(
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             ITEM_VIEW_TYPE ->
-                ItemViewHolder(inflater.inflate(R.layout.item_card, parent, false))
+                ItemViewHolder(inflater.inflate(R.layout.list_item_card, parent, false))
             EMPTY_VIEW_TYPE ->
-                EmptyViewHolder(inflater.inflate(R.layout.item_card_empty, parent, false))
+                EmptyViewHolder(inflater.inflate(R.layout.list_item_card_empty, parent, false))
             else -> error("unknown view type $viewType")
         }
     }
@@ -82,6 +82,17 @@ class AdapterCards(
         notifyDataSetChanged()
     }
 
+    fun refreshData(data: MutableList<Data>, latestQueryString: String) {
+        this.data = data
+
+        if (latestQueryString.isNotEmpty()) {
+            searchBy(latestQueryString)
+        } else {
+            initCopyList()
+            notifyDataSetChanged()
+        }
+    }
+
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bindView(card: JsonUtils.Card, onCardClicked: (String) -> Unit) {
@@ -96,7 +107,7 @@ class AdapterCards(
 
                 val viewEvent =
                     (LayoutInflater.from(itemView.context)
-                        .inflate(R.layout.item_card_event, itemView.linearLayoutMainItemEvents, true) as LinearLayout).lastChild()
+                        .inflate(R.layout.list_item_card_event, itemView.linearLayoutMainItemEvents, true) as LinearLayout).lastChild()
 
                 viewEvent?.apply {
                     background = itemView.context.getDrawableCompat(

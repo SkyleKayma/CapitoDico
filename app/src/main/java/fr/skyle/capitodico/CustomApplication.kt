@@ -25,6 +25,7 @@ class CustomApplication : Application() {
                 listOf(
                     Modules.configModule,
                     Modules.serviceModule,
+                    Modules.utilsModule,
                     Modules.viewModelModule
                 )
             )

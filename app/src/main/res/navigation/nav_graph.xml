@@ -44,6 +44,6 @@
         android:id="@+id/bottomSheetDialogCardFilter"
         android:name="fr.skyle.capitodico.ui.cards.bottomsheet.BottomSheetDialogCardFilter"
         android:label="BottomSheetDialogCardFilter"
-        tools:layout="@layout/bottom_sheet_dialog_card_filter" />
+        tools:layout="@layout/bottom_sheet_card_filter" />
 
 </navigation>

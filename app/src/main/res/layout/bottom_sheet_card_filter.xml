@@ -30,6 +30,7 @@
             app:srcCompat="@drawable/ic_cross" />
 
         <TextView
+            android:id="@+id/textViewBottomSheetCardFilterClose"
             style="@style/CapitoTheme.TextAppearance.Title.Bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/imageButtonBottomSheetReset"
+            android:id="@+id/imageButtonBottomSheetCardFilterReset"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -69,7 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ca_background_dark"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
 
         <TextView
             style="@style/CapitoTheme.TextAppearance.LittleTitle.Regular"
@@ -78,7 +80,7 @@
             android:gravity="center"
             android:padding="20dp"
             android:text="Tri"
-            android:textColor="@color/ca_color_accent" />
+            android:textColor="@color/ca_text_title" />
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerBottomSheetDialogCardFilterSort"
@@ -86,9 +88,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/shape_spiner_background_rounded"
-            android:entries="@array/cards_filter_sortby"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp" />
+            android:paddingVertical="12dp"
+            tools:entries="@array/cards_filter_sortby" />
 
         <TextView
             style="@style/CapitoTheme.TextAppearance.LittleTitle.Regular"
@@ -97,14 +98,13 @@
             android:gravity="center"
             android:padding="20dp"
             android:text="Type d'action"
-            android:textColor="@color/ca_color_accent" />
+            android:textColor="@color/ca_text_title" />
 
-        <LinearLayout
+        <fr.skyle.capitodico.view.ItemFilterActivationSelector
+            android:id="@+id/itemFilterActivatorSelector"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp" />
 
     </LinearLayout>
 

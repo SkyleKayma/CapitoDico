@@ -2,28 +2,33 @@
     "events": {
         "begin": {
             "readable_name": "début",
-            "color": "#82B1FF",
-            "description": "Au moins une partie de son effet s'exécute au début de la partie, juste après la distribution des cartes."
+            "order": 1,
+            "color": "#64B5F6",
+            "description": "Une partie de l'effet s'exécute au début de la partie, juste après la distribution des cartes."
         },
         "middle": {
             "readable_name": "pendant un tour",
-            "color": "#CCFF90",
-            "description": "Au moins une partie de son effet s'exécute pendant la partie, juste après un échange de cartes."
+            "order": 2,
+            "color": "#81C784",
+            "description": "Une partie de l'effet s'exécute pendant la partie, juste après un échange de cartes."
         },
         "before_end": {
             "readable_name": "avant le décompte",
-            "color": "#FFFF8D",
-            "description": "Au moins une partie de son effet s'exécute avant le décompte des points. Ces effets permettent souvent de réaliser des changements de cartes importants."
+            "order": 3,
+            "color": "#FFF176",
+            "description": "Une partie de l'effet s'exécute avant le décompte des points. Ces effets permettent souvent de réaliser des changements de cartes importants."
         },
         "end": {
             "readable_name": "pendant le décompte",
-            "color": "#FFD180",
-            "description": "Au moins une partie de son effet s'exécute pendant le décompte des points. Ces effets n'ont en général aucun lien avec d'autres cartes."
+            "order": 4,
+            "color": "#FFB74D",
+            "description": "Une partie de l'effet s'exécute pendant le décompte des points. Ces effets n'ont en général aucun lien avec d'autres cartes."
         },
         "after_end": {
             "readable_name": "après le décompte",
-            "color": "#FF8A80",
-            "description": "Au moins une partie de son effet s'exécute après le décompte des points. Ces effets ont souvent un impact sur le score global obtenu."
+            "order": 5,
+            "color": "#F06262",
+            "description": "Une partie de l'effet s'exécute après le décompte des points. Ces effets ont souvent un impact sur le score global obtenu."
         }
     },
     "cards": [
@@ -31,17 +36,17 @@
             "name": "Rush",
             "value": -5,
             "priority": 0,
-            "description": "L'effet est pété ? T'as qu'à imaginer qu'il ne l'est pas.",
+            "description": "Oui, l'effet est pété. C'est la vie.",
             "events": [
                 "end"
             ],
-            "effect": "Au décompte des points: si vous possédez la carte \"Aurely\", alors la valeur de toutes vos cartes devient positif (peu importe l'effet de vos autres cartes). Si vous possédez également les cartes \"Ange\" et \"Skyle\" alors jetez un dé: si le résultat est pair, appliquez l'effet de la carte \"Rush\" sinon appliquez l'effet de la carte \"Skyle\"."
+            "effect": "Au décompte des points: si vous possédez la carte \"Aurely\", alors les valeurs de toutes vos cartes deviennent positives (peu importe l'effet de vos autres cartes). Si vous possédez également les cartes \"Ange\" et \"Skyle\" alors jetez un dé: si le résultat est pair, appliquez l'effet de la carte \"Rush\" sinon appliquez l'effet de la carte \"Skyle\"."
         },
         {
             "name": "Skyle",
             "value": 5,
             "priority": 0,
-            "description": "L'effet est pété ? C'est la vie.",
+            "description": "Oui, l'effet est naze. C'est la vie.",
             "events": [
                 "end"
             ],
@@ -51,7 +56,7 @@
             "name": "Ange",
             "value": 3,
             "priority": 0,
-            "description": "Rend ma carte, elle est à moi d'abord !",
+            "description": "Rend-la moi, c'est la mienne !",
             "events": [
                 "middle"
             ],
@@ -61,7 +66,7 @@
             "name": "Aurely",
             "value": -3,
             "priority": 0,
-            "description": "Ah non, en fait elle est pas belle celle-là.",
+            "description": "Ah non, finalement je veux celle-ci, ou bien celle-là ...",
             "events": [
                 "middle"
             ],
@@ -71,7 +76,7 @@
             "name": "Minequest",
             "value": 3,
             "priority": 0,
-            "description": "",
+            "description": "Plus on est de fou, plus on rit !",
             "events": [
                 "after_end"
             ],
@@ -81,7 +86,7 @@
             "name": "Cloud Community",
             "value": 3,
             "priority": 0,
-            "description": "",
+            "description": "Rien de plus plaisant que de voir une telle famille !",
             "events": [
                 "end"
             ],
@@ -91,7 +96,7 @@
             "name": "Discord",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "On en change aussi souvent que de calçons.",
             "events": [
                 "end"
             ],
@@ -101,7 +106,7 @@
             "name": "Mumble",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "Ca c'est une vraie famille.",
             "events": [
                 "end"
             ],
@@ -111,7 +116,7 @@
             "name": "Team Guildwars",
             "value": 0,
             "priority": 0,
-            "description": "",
+            "description": "Tu nous vois, tu nous vois plus ...",
             "events": [
                 "before_end"
             ],
@@ -121,7 +126,7 @@
             "name": "Minequest 2",
             "value": 0,
             "priority": 0,
-            "description": "Votre partie est un échec.",
+            "description": "C'est un échec total, quelle idée aussi !",
             "events": [
                 "end"
             ],
@@ -131,7 +136,7 @@
             "name": "Team Minecraft",
             "value": 4,
             "priority": 0,
-            "description": "",
+            "description": "Toujours présent !",
             "events": [
                 "end"
             ],
@@ -141,7 +146,7 @@
             "name": "Satisfactory",
             "value": 3,
             "priority": 0,
-            "description": "Si j'ai 2 fonderies et qu'il me faut 6 constructeurs de plaque de fer, alors ...",
+            "description": "2 fonderies, 8 rafineries, 12 constructeurs, 24 assembleurs de plaques de fer et de vis ...",
             "events": [
                 "begin"
             ],
@@ -151,7 +156,7 @@
             "name": "Coronavirus",
             "value": -2,
             "priority": 0,
-            "description": "C'est aussi dramatique en vrai qu'en jeu !",
+            "description": "C'est aussi dramatique en vrai qu'en jeu.",
             "events": [
                 "end"
             ],
@@ -171,7 +176,7 @@
             "name": "Portal orange",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "J'étais sûr d'avoir mis l'autre dans le coin ...",
             "events": [
                 "before_end"
             ],
@@ -181,7 +186,7 @@
             "name": "Portal bleu",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "J'étais sûr d'avoir mis l'autre dans le coin ...",
             "events": [
                 "before_end"
             ],
@@ -191,7 +196,7 @@
             "name": "Garry's Mod",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "Tout le monde est d'accord ou c'est non. Nah !",
             "events": [
                 "end"
             ],
@@ -201,7 +206,7 @@
             "name": "Bug de code",
             "value": 2,
             "priority": 0,
-            "description": "Personne n'a envie de mettre le nez dans votre code pour corriger le problème.",
+            "description": "Qui aurait envie de vous aider à débugger votre code aussi ... Chacun ses problèmes.",
             "events": [
                 "before_end"
             ],
@@ -231,7 +236,7 @@
             "name": "Sim's",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "Et imagine lui et elle ensemble, ils seraient trop mignons ! Allez hop en couple !",
             "events": [
                 "middle"
             ],
@@ -241,7 +246,7 @@
             "name": "Animal crossing",
             "value": -2,
             "priority": 0,
-            "description": "Vous avez beaucoup trop d'amis",
+            "description": "Vous avez beaucoup trop d'amis, bien entendu profitez d'eux !",
             "events": [
                 "before_end"
             ],
@@ -261,7 +266,7 @@
             "name": "Echange équivalent",
             "value": -4,
             "priority": 0,
-            "description": "",
+            "description": "Savoir donner pour mieux recevoir.",
             "events": [
                 "begin"
             ],
@@ -271,7 +276,7 @@
             "name": "One for all",
             "value": 1,
             "priority": 0,
-            "description": "L'union fait la force !",
+            "description": "L'union fait la force ! C'est pour une cause juste !",
             "events": [
                 "after_end"
             ],
@@ -281,17 +286,17 @@
             "name": "Ligne temporelle",
             "value": 2,
             "priority": 0,
-            "description": "",
+            "description": "J'ai vu que dans une autre ligne temporelle j'avais enfin une chance de gagner alors bon ...",
             "events": [
                 "begin"
             ],
             "effect": "Au début de la manche: vous décidez d'allonger ou de réduire de 1 le nombre total de tour."
         },
         {
-            "name": "",
+            "name": "Rien",
             "value": -5,
             "priority": 0,
-            "description": "",
+            "description": "Rien.",
             "events": [
                 "after_end"
             ],
@@ -301,12 +306,12 @@
             "name": "Yugi",
             "value": -3,
             "priority": 0,
-            "description": "",
+            "description": "Je pose cette carte face cachée !",
             "events": [
                 "begin",
                 "before_end"
             ],
-            "effect": "Au début de la manche: choisissez une carte de votre main puis mettez la face cachée (Cette carte exclue). Elle le restera jusqu'à la fin de la manche. La carte face cachée n'est affectée par aucune autre carte et son effet est résolu normalement au décompte des points."
+            "effect": "Au début de la manche: choisissez une carte de votre main puis mettez la face verso (Cette carte exclue). Elle le restera jusqu'à la fin de la manche. La carte ainsi posée n'est affectée par aucune autre carte et son effet est résolu normalement au décompte des points."
         },
         {
             "name": "Lou",
@@ -323,7 +328,7 @@
             "name": "Spiderman",
             "value": 3,
             "priority": 0,
-            "description": "",
+            "description": "Tu croyais aller où comme ça ?",
             "events": [
                 "begin",
                 "middle"
@@ -334,7 +339,7 @@
             "name": "Coyote",
             "value": 2,
             "priority": 0,
-            "description": "piéger vos alier",
+            "description": "J'étais caché !",
             "events": [
                 "end"
             ],
@@ -344,7 +349,7 @@
             "name": "Investissement",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "Est-ce que cette année a été fructueuse ?",
             "events": [
                 "end"
             ],
@@ -354,7 +359,7 @@
             "name": "Tout ou rien",
             "value": 0,
             "priority": 0,
-            "description": "",
+            "description": "Tapis !",
             "events": [
                 "begin",
                 "after_end"
@@ -365,17 +370,17 @@
             "name": "Réalité virtuelle",
             "value": 0,
             "priority": 0,
-            "description": "",
+            "description": "Ah bah moi je vois 5 là !",
             "events": [
                 "end"
             ],
-            "effect": "Au décompte des points: Choisissez un joueur puis lancez un dé: s'il réussi à deviner la valeur du dé, alors vous perdez 10 points. Sinon vous gagnez 4 points."
+            "effect": "Au décompte des points: Choisissez un joueur puis lancez un dé: s'il réussi à deviner la valeur du dé, alors vous perdez 5 points. Sinon vous gagnez 4 points."
         },
         {
             "name": "Dernière chance",
             "value": 10,
             "priority": 0,
-            "description": "",
+            "description": "Ce jeu n'est pas équilibré de toute façon.",
             "events": [
                 "end"
             ],
@@ -385,7 +390,7 @@
             "name": "Fastpass",
             "value": -3,
             "priority": 0,
-            "description": "",
+            "description": "Fallait pas être si pressé aussi.",
             "events": [
                 "begin"
             ],
@@ -405,7 +410,7 @@
             "name": "+1",
             "value": 1,
             "priority": 0,
-            "description": "",
+            "description": "Plus de hasard ! Encore plus !",
             "events": [
                 "begin",
                 "middle"
@@ -416,7 +421,7 @@
             "name": "Boss de Clermont",
             "value": 5,
             "priority": 0,
-            "description": "Bah parce que vous êtes le boss.",
+            "description": "Vous êtes le boss après tout.",
             "events": [
                 "before_end"
             ],
@@ -477,7 +482,7 @@
             "name": "C'est kika pété",
             "value": 1,
             "priority": 0,
-            "description": "Nan mais elle pue aussi ...",
+            "description": "T'as vu comment elle chlingue ?",
             "events": [
                 "before_end"
             ],
@@ -497,7 +502,7 @@
             "name": "Croque-mort",
             "value": -2,
             "priority": 0,
-            "description": "Et un zombie en plus !",
+            "description": "Et un zombie de plus !",
             "events": [
                 "before_end"
             ],

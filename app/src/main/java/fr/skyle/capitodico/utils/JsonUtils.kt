@@ -18,7 +18,9 @@ object JsonUtils {
 
     data class Event(
         var readable_name: String = "",
-        var color: String = ""
+        var order: Int,
+        var color: String = "",
+        var description: String = ""
     )
 
     data class Card(

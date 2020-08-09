@@ -126,7 +126,7 @@
         <!-- Query Text Color -->
         <item name="android:textColorPrimary">@color/ca_text_light_primary</item>
         <!-- Hint Text Color -->
-        <item name="android:textColorHint">@color/ca_text_light_tertiary</item>
+        <item name="android:textColorHint">@color/ca_text_light_secondary</item>
         <!-- Clear Icon Color -->
         <item name="android:tint">@color/ca_text_light_primary</item>
     </style>

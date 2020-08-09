@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/layer_list_filter_activation_backgound"
+        android:drawable="@drawable/shape_filter_activation_background_rounded" />
+    <item
+        android:id="@+id/layer_list_filter_activation_stroke"
+        android:drawable="@drawable/shape_filter_activation_stroke_rounded" />
+</layer-list>

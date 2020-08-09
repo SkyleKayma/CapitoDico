@@ -81,7 +81,7 @@ class FragmentCardDetail : AbstractFragment() {
 
             val textViewEvent =
                 (LayoutInflater.from(context)
-                    .inflate(R.layout.item_card_detail_event, flexBoxLayoutCardDetail) as FlexboxLayout).lastChild() as? TextView
+                    .inflate(R.layout.list_item_card_detail_event, flexBoxLayoutCardDetail) as FlexboxLayout).lastChild() as? TextView
 
             textViewEvent?.apply {
                 text = event?.readable_name ?: ""
