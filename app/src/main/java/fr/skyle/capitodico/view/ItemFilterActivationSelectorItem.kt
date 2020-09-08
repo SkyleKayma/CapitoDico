@@ -7,6 +7,8 @@ import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
+import androidx.annotation.ColorInt
+import fr.openium.kotlintools.ext.getColorCompat
 import fr.openium.kotlintools.ext.gone
 import fr.openium.kotlintools.ext.show
 import fr.skyle.capitodico.R
@@ -17,12 +19,16 @@ import kotlinx.android.synthetic.main.item_filter_activation_selector_item.view.
  */
 class ItemFilterActivationSelectorItem(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
-    private var defaultColor: Int? = null
+    @ColorInt
+    private var defaultColor: Int
 
     private var isChecked: Boolean = true
 
     init {
         View.inflate(context, R.layout.item_filter_activation_selector_item, this)
+
+        defaultColor = context.getColorCompat(R.color.ca_color_primary)
+
         reset()
     }
 
@@ -31,7 +37,7 @@ class ItemFilterActivationSelectorItem(context: Context, attrs: AttributeSet? = 
 
         ((frameLayoutFilterActivationSelector.background as LayerDrawable)
             .findDrawableByLayerId(R.id.layer_list_filter_activation_stroke) as GradientDrawable).setColor(
-            this.defaultColor!!
+            this.defaultColor
         )
     }
 
