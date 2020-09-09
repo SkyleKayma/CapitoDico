@@ -1,3 +1,4 @@
 [submodule "app/src/main/assets/private"]
 	path = app/src/main/assets/private
 	url = https://github.com/SkyleKayma/CapitoDico-Private.git
+	branch = master
